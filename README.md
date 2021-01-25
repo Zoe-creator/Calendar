@@ -9,7 +9,7 @@ display a correct calendar as changed corresponding to year,month ,date,and day,
 ## API and Data Sample
 https://calendarific.com/api/v2
 
-"holidays": [
+[
       {
          "name": "New Year's Day",
         "description": "New Year's Day is the first day of the Gregorian calendar, which is widely used in many countries such as the USA.",
@@ -51,7 +51,7 @@ https://calendarific.com/api/v2
         ],
         "locations": "All",
         "states": "All"
-      },
+      }
 
 
 ## Wireframes
@@ -79,8 +79,8 @@ https://wireframe.cc/N5VrpU
 ## Second API
 
 https://api.weatherstack.com/...
-"current": {
 
+current: {
     "observation_time": "05:27 PM",
     "temperature": 1,
     "weather_code": 113,
@@ -99,9 +99,7 @@ https://api.weatherstack.com/...
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
 
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
