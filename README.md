@@ -11,7 +11,7 @@ https://calendarific.com/api/v2
 
 "holidays": [
       {
-        "name": "New Year's Day",
+         "name": "New Year's Day",
         "description": "New Year's Day is the first day of the Gregorian calendar, which is widely used in many countries such as the USA.",
         "country": {
           "id": "us",
@@ -80,6 +80,7 @@ https://wireframe.cc/N5VrpU
 
 https://api.weatherstack.com/...
 "current": {
+
     "observation_time": "05:27 PM",
     "temperature": 1,
     "weather_code": 113,
