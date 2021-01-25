@@ -82,7 +82,7 @@ current: {
     "query": "New York",
     "language": "en",
     "unit": "m"
-  },
+    }
 
 ## Project Schedule
 
@@ -98,6 +98,9 @@ current: {
 |Jan 29| MVP | Incomplete
 |Feb 1| Presentations/Project Submission | Incomplete
 
+## Priority Matrix
+
+https://wireframe.cc/2HqJqq
 
 
 ## Timeframes
@@ -106,10 +109,10 @@ current: {
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-|HTML | H | 2hr | ? | ? |
-| CSS - color,border,size  | H | 3 hrs| ?hrs | ?hrs |
+|HTML | M | 2hr | ? | ? |
+| CSS - color,border,size  | L | 3 hrs| ?hrs | ?hrs |
 | CSS - flexbox or grid | H | 3hrs| ?hrs | ?hrs |
-| CSS - fit screen | H | 2hr | ? hrs | ? hrs|
+| CSS - adjust screen | H | 2hr | ? hrs | ? hrs|
 | create current Calendar  using date object method | H | 2 hrs | ? | ? |
 | insert data option for year & month JS| H | 3 hrs | ? | ? |
 | change calender as to year, month | H | 3 hrs | ? | ? |
