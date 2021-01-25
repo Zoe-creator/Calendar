@@ -101,6 +101,7 @@ current: {
 ## Priority Matrix
 
 https://wireframe.cc/2HqJqq
+![Priority Matrix](https://res.cloudinary.com/lizhenwen727/image/upload/v1611618393/Screen_Shot_2021-01-25_at_6.42.12_PM_fevmlf.png)
 
 
 ## Timeframes
