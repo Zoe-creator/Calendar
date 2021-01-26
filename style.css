@@ -1,0 +1,114 @@
+body {
+  background-image: linear-gradient(to top, grey, pink);
+
+  display: grid;
+  grid-template-areas:
+    "form"
+    "div"
+    "table"
+    "div"
+    "main"
+    "footer";
+
+}
+
+.display-header {
+
+  font-size: 30px;
+  font-weight: bolder;
+  color: rgb(153, 63, 205);
+  padding: 30px;
+
+}
+
+#select-month,
+#select-year {
+  display: inline;
+  margin-top: 10px;
+
+  border: 2px rgb(34, 32, 32) solid;
+  padding: 4px;
+  font-size: 20px;
+  background-color: rgb(243, 195, 245);
+}
+
+.grid {
+  border-collapse: collapse;
+  font-size: 1em;
+  min-width: 400px;
+}
+
+.grid thead th {
+  text-align: center;
+  background-color: rgb(248, 206, 241);
+}
+
+.grid th,
+.grid td {
+  padding: 20px;
+  text-align: center;
+  border: 1px black solid;
+  background-color: rgb(250, 240, 255);
+
+}
+
+.grid td {
+  height: 40px;
+}
+
+.grid tbody tr {
+  border: 1px black solid;
+
+}
+
+.next,
+.previous {
+  display: inline;
+  font-size: 20px;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+
+}
+
+.next {
+  float: right;
+}
+
+.two-buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 20px;
+  text-align: center;
+}
+
+.itstoday {
+  background: rgb(238, 197, 83);
+}
+
+footer {
+
+  text-align: center;
+  font-size: 16px;
+  color: rgb(247, 197, 197);
+  opacity: .9;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .display-header {
+    width: 100%;
+  }
+}
+
+.itstoday {
+  background: rgb(238, 197, 83);
+  color: red;
+}
