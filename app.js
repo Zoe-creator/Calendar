@@ -1,9 +1,40 @@
+const getHoliday=async ()=>{
+try {
+  let optionYear = document.querySelector('#select-year')
+
+  let year=optionYear.value
+  console.log(year)
+  let getdata= await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=${year}`)
+let holidays=getdata.data.response.holidays
+
+//use map to create new array with wanted data
+let holidayData=holidays.map(holiday=>{
+const build={};
+  build["name"]=holiday.name
+  build["fullDate"]=holiday.date.iso
+  build["year"]=holiday.date.datetime.year
+  build["month"]=holiday.date.datetime.month
+  build["day"]=holiday.date.datetime.day
+  build["description"]=holiday.description
+return build
+})
+return holidayData
+
+} catch (error) {
+  console.log(error)
+}
+
+}
+console.log(getHoliday()[0])
+
+
+
 let today = new Date()
 let currentYear = today.getFullYear(); //2021
 let currentDay = today.getDay() //tuesday the calendar starts sunday=0
 let currentDate = today.getDate() //26
 let currentMonth = today.getMonth() + 1 //month start index 0; 
-console.log(today, currentYear, currentDate, currentDay, currentMonth)
+//console.log(today, currentYear, currentDate, currentDay, currentMonth)
 //add option to pick up a year
 let optionYear = document.querySelector('#select-year')
 for (let i = 2025; i >= 2000; i--) {
@@ -22,6 +53,35 @@ for (let i = 0; i < months.length; i++) {
   optionMonth.append(option)
 }
 
+let body = document.querySelector("body")
+let headerColor = document.querySelector(".display-header")
+
+function changeBody(month) {
+  switch (month) {
+    case 1:
+    case 2:
+    case 3:
+      body.style.backgroundImage = "linear-gradient(to top, white, pink)";
+      headerColor.style.color = "rgb(250, 60, 205)"
+      break;
+    case 4:
+    case 5:
+    case 6:
+      body.style.backgroundImage = "linear-gradient(to top, blue, rgb(102,255,178))";
+      headerColor.style.color = "rgb(25, 250, 250)"
+      break;
+    case 7:
+    case 8:
+    case 9:
+      body.style.backgroundImage = "linear-gradient(to top, yellow, orange)";
+      headerColor.style.color = "rgb(230, 100, 100)"
+      break;
+    default:
+      body.style.backgroundImage = "linear-gradient(to top, red, rgb(153,255,51))";
+      headerColor.style.color = "rgb(250, 20, 10)"
+  }
+}
+
 //enable options
 let form = document.querySelector("#year-month-submission")
 form.addEventListener('change', (e) => {
@@ -30,9 +90,14 @@ form.addEventListener('change', (e) => {
   console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
+  getHoliday()
   createCalendar(selectYear, monthIndex)
 
 })
+
+
+
+
 //clear calendar each time;
 const clearCalendar = () => {
   let calendarBody = document.querySelector('#calendar-body')
@@ -42,34 +107,33 @@ const clearCalendar = () => {
 }
 
 // display month,year above the calender
-let showHeader = document.querySelector(".display-header")
-
-function displayMonthYear() {
-  let selectYear = document.querySelector("#select-year").value
-  let selectMonth = document.querySelector("#select-month").value
-  let header = document.createElement("header")
-  header.setAttribute("class", "display-month-year")
-  header.innerText = `${selectMonth} ${selectYear}`
-  // console.log(header)
-  showHeader.append(header)
-  return showHeader
-}
-
-//create a calendar body 
-function createCalendar(year, month) {
-  //where the first of month start in the week
-  let firstDayofMonth = new Date(year, month, 1).getDay() //weeks starts index=0 and sunday=0 
-  let monthTest = new Date(year, month, 1).getMonth() // here month index start 1;
-  console.log(monthTest)
-  // console.log(firstDayofMonth)
-  let totalDaysinMonth = new Date(year, month, 0).getDate()
-  console.log(totalDaysinMonth)
-  //inital looking on option and header showing month & year.
+function displayMonthYear(year, month) {
+  let showHeader = document.querySelector(".display-header")
   let selectYear = document.querySelector("#select-year")
   let selectMonth = document.querySelector("#select-month")
   selectYear.value = year;
   selectMonth.value = months[month - 1]
   showHeader.innerText = `${months[month-1]} ${year}` //arr starts with index 0
+  return showHeader
+}
+
+function showIt(){
+  getHoliday()
+
+}
+//create a calendar body 
+function createCalendar(year, month) {
+  //where the first of month start in the week
+  let firstDayofMonth = new Date(year, month - 1, 1).getDay() //weeks starts index=0 and sunday=0 
+  let monthTest = new Date(year, month, 1).getMonth() // here month index start 1;
+  console.log(monthTest)
+  // console.log(firstDayofMonth)
+  let totalDaysinMonth = new Date(year, month, 0).getDate()
+  console.log(totalDaysinMonth)
+  changeBody(month)
+  getHoliday()
+  displayMonthYear(year, month)
+
   clearCalendar()
 
   let day = 1; //everymonth start day=1
@@ -93,9 +157,13 @@ function createCalendar(year, month) {
         //highlight today;
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
+          }
           // console.log(td)
           //  console.log(day === currentDay && month === currentMonth && year === currentYear)
-        }
+//         }else{
+//             if(day===getHoliday().day && month===getHoliday().month&& year===getHoliday().year){
+// td.innerText=holiday.name
+//         }
         td.innerText = day;
         tr.append(td)
 
@@ -107,4 +175,4 @@ function createCalendar(year, month) {
   return calendarBody;
 }
 
-console.log(createCalendar(currentYear, currentMonth))
+createCalendar(currentYear, currentMonth)

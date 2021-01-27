@@ -1,6 +1,5 @@
 body {
-  background-image: linear-gradient(to top, grey, pink);
-
+  background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
   display: grid;
   grid-template-areas:
     "form"
@@ -9,27 +8,26 @@ body {
     "div"
     "main"
     "footer";
-
 }
 
 .display-header {
-
+position:relative;
+margin-top:10px;
+margin-bottom: 10px;
   font-size: 30px;
   font-weight: bolder;
-  color: rgb(153, 63, 205);
-  padding: 30px;
-
 }
 
 #select-month,
 #select-year {
   display: inline;
+  position:relative;
   margin-top: 10px;
 
   border: 2px rgb(34, 32, 32) solid;
   padding: 4px;
   font-size: 20px;
-  background-color: rgb(243, 195, 245);
+  background-color: rgb(250, 245, 250);
 }
 
 .grid {
@@ -40,20 +38,20 @@ body {
 
 .grid thead th {
   text-align: center;
-  background-color: rgb(248, 206, 241);
+  background-color: rgb(187, 233, 245, 0.6);
 }
 
 .grid th,
 .grid td {
+
   padding: 20px;
   text-align: center;
   border: 1px black solid;
-  background-color: rgb(250, 240, 255);
-
+  background-color: rgb(250, 240, 255,.5);
 }
 
 .grid td {
-  height: 40px;
+  height: 50px;
 }
 
 .grid tbody tr {
@@ -71,7 +69,7 @@ body {
 
 }
 
-.next {
+#select-year {
   float: right;
 }
 
@@ -102,13 +100,33 @@ footer {
   body {
     background-color: lightblue;
   }
-
+#select-year {
+  float: right;
+}
   .display-header {
     width: 100%;
   }
+  .grid th,
+.grid td {
+  padding: 5px;
+  text-align: center;
+  border: 1px rgb(17, 3, 77) solid;
+  background-color: rgb(238, 215, 250,.5);
+
+}
+.grid thead th {
+  text-align:center;
+  padding:10px;
+  background-color: rgb(17, 233, 245, 0.6);
+}
+.grid td {
+  height: 60px;
+}
+
 }
 
 .itstoday {
-  background: rgb(238, 197, 83);
+  background-color: rgb(238, 197, 83);
   color: red;
+  font-weight: bolder;
 }
