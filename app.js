@@ -1,12 +1,10 @@
-// (day === holidayday && month === holidaymonth && year === holidayyear) {
-
-
 
 const getHoliday = async () => {
   try {
     let optionYear = document.querySelector('#select-year')
     let year = optionYear.value
-    let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=${year}`)
+    let apikey='d6266e50d306d7a484e0c1890beac99de3c0fa57'
+    let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
     return getValue(holidays)
   } catch (error) {
@@ -99,7 +97,7 @@ form.addEventListener('change', (e) => {
   console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
-  getHoliday()
+ 
   createCalendar(selectYear, monthIndex)
 
 })
@@ -126,10 +124,6 @@ function displayMonthYear(year, month) {
   return showHeader
 }
 
-function showIt() {
-  getHoliday()
-
-}
 //create a calendar body 
 function createCalendar(year, month) {
   //where the first of month start in the week
@@ -140,7 +134,7 @@ function createCalendar(year, month) {
   let totalDaysinMonth = new Date(year, month, 0).getDate()
   console.log(totalDaysinMonth)
   changeBody(month)
-  getHoliday()
+
   displayMonthYear(year, month)
 
   clearCalendar()
