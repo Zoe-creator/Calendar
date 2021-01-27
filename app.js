@@ -1,34 +1,48 @@
-const getHoliday=async ()=>{
-try {
-  let optionYear = document.querySelector('#select-year')
+// (day === holidayday && month === holidaymonth && year === holidayyear) {
 
-  let year=optionYear.value
-  console.log(year)
-  let getdata= await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=${year}`)
-let holidays=getdata.data.response.holidays
 
-//use map to create new array with wanted data
-let holidayData=holidays.map(holiday=>{
-const build={};
-  build["name"]=holiday.name
-  build["fullDate"]=holiday.date.iso
-  build["year"]=holiday.date.datetime.year
-  build["month"]=holiday.date.datetime.month
-  build["day"]=holiday.date.datetime.day
-  build["description"]=holiday.description
-return build
-})
-return holidayData
 
-} catch (error) {
-  console.log(error)
-}
+const getHoliday = async () => {
+  try {
+    let optionYear = document.querySelector('#select-year')
+
+    let year = optionYear.value
+
+    let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=${year}`)
+    let holidays = getdata.data.response.holidays
+
+    getValue(holidays)
+
+  } catch (error) {
+    console.log(error)
+  }
 
 }
-console.log(getHoliday()[0])
+console.log(getHoliday())
 
+function getValue(holidays) {
+  holidays.forEach(holiday => {
+    let name = holiday.name
 
+    let fulldate = holiday.date.iso
+    let year = holiday.date.datetime.year
+    let month = holiday.date.datetime.month
+    let day = holiday.date.datetime.day
+    let description = holiday.description
+    let getDay = document.querySelectorAll("td")
+    let getYear = document.querySelector("#select-year").value
+    let getMonth = document.querySelector("#select-month").value
+    for (let i = 0; i < getDay.length; i++) {
+      let eachtd = getDay[i]
+      let text = getDay[i].textContent
+   
+      if (  getYear === year && getMonth === month) {
+    getDay += name
+      }
+    }
 
+  })
+}
 let today = new Date()
 let currentYear = today.getFullYear(); //2021
 let currentDay = today.getDay() //tuesday the calendar starts sunday=0
@@ -117,7 +131,7 @@ function displayMonthYear(year, month) {
   return showHeader
 }
 
-function showIt(){
+function showIt() {
   getHoliday()
 
 }
@@ -157,13 +171,7 @@ function createCalendar(year, month) {
         //highlight today;
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
-          }
-          // console.log(td)
-          //  console.log(day === currentDay && month === currentMonth && year === currentYear)
-//         }else{
-//             if(day===getHoliday().day && month===getHoliday().month&& year===getHoliday().year){
-// td.innerText=holiday.name
-//         }
+        }
         td.innerText = day;
         tr.append(td)
 
