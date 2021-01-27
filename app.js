@@ -5,43 +5,38 @@
 const getHoliday = async () => {
   try {
     let optionYear = document.querySelector('#select-year')
-
     let year = optionYear.value
-
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
-
-    getValue(holidays)
-
+    return getValue(holidays)
   } catch (error) {
     console.log(error)
   }
 
 }
-console.log(getHoliday())
+// console.log(getHoliday())
 
 function getValue(holidays) {
-  holidays.forEach(holiday => {
-    let name = holiday.name
-
-    let fulldate = holiday.date.iso
-    let year = holiday.date.datetime.year
-    let month = holiday.date.datetime.month
-    let day = holiday.date.datetime.day
-    let description = holiday.description
-    let getDay = document.querySelectorAll("td")
-    let getYear = document.querySelector("#select-year").value
-    let getMonth = document.querySelector("#select-month").value
-    for (let i = 0; i < getDay.length; i++) {
-      let eachtd = getDay[i]
-      let text = getDay[i].textContent
-   
-      if (  getYear === year && getMonth === month) {
-    getDay += name
-      }
-    }
-
+  let getValue = holidays.map(holiday => {
+    let obj = {}
+    obj["name"] = holiday.name
+    obj["fulldate"] = holiday.date.iso
+    obj["year"] = holiday.date.datetime.year
+    obj["month"] = holiday.date.datetime.month
+    obj["day"] = holiday.date.datetime.day
+    obj["description"] = holiday.description
+    return obj
   })
+  getValue.forEach((holiday) => {
+     let getYear = document.querySelector("#select-year").value
+  let getMonth = document.querySelector("#select-month").value
+  if ( getYear === holiday.year && getMonth === holiday.month) {
+    getDay += name
+  }
+  })
+  console.log(getValue)
+ 
+
 }
 let today = new Date()
 let currentYear = today.getFullYear(); //2021
