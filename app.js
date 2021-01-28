@@ -25,9 +25,6 @@ function getValue(holidays) {
   let selectMonth = document.querySelector("#select-month").value
   // console.log(selectMonth)
 
-  let list = document.querySelector(".list-holidays")
-  console.log(list)
-  list.innerHTML = ""
   
   let neededData=holidays.map(holiday => {
     let obj = {}
@@ -61,11 +58,33 @@ function getValue(holidays) {
         // <p class = "holiday-description> ${holiday.description}</p>
         // `
         // list.insertAdjacentHTML("beforeend", ol)
+
+        //when the cell has holiday being clicked. show description
+        day.addEventListener("click", function showDecription(e) {
+          
+  let list = document.querySelector(".description")
+  console.log(list)
+  list.innerHTML = ""
+             if (e.target.hasAttribute("class") ){
+             let ol = document.createElement("div")
+                ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
+                <p class= "holiday-name> ${holiday.name}</p>
+                <p class = "holiday-description> ${holiday.description}</p>
+                `
+                list.insertAdjacentHTML("beforeend", ol)
+          
+        }
+        })
+       
+       
+        
+
       }
   })
 
   })
 }
+
 
 
 
