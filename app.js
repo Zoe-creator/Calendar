@@ -10,7 +10,6 @@ console.log(today, currentYear, currentDate, currentDay, currentMonth)
 
 const getHoliday = async (year) => {
   try {
-
     let apikey = "d6266e50d306d7a484e0c1890beac99de3c0fa57"
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
@@ -24,10 +23,11 @@ const getHoliday = async (year) => {
 function getValue(holidays) {
 
   let selectMonth = document.querySelector("#select-month").value
-  console.log(selectMonth)
+  // console.log(selectMonth)
 
   let list = document.querySelector(".list-holidays")
-  list.innerHTML = ""
+  console.log(list)
+  // list.innerHTML = ""
   
   holidays.map(holiday => {
     let obj = {}
@@ -49,22 +49,23 @@ function getValue(holidays) {
       <p class= "holiday-name> ${holiday.name}</p>
       <p class = "holiday-description> ${holiday.description}</p>
       `
-      
        list.insertAdjacentHTML("beforeend",ol)
-      console.log(ol)
+      // console.log(ol)
     } else {
       return;
     }
     
   })
 }
-//let td=document.querySelectorAll("td")
-//let selectYear = document.querySelector("#select-year").value
-   //console.log(selectYear)
+let td = document.querySelectorAll("td")
+
+let selectYear = document.querySelector("#select-year")
+   console.log(selectYear.value)
 
   
-// td.forEach(element=>{
-//   // console.log(element.innerHTML)
+td.forEach(element => {
+  console.log(element.innerHTML)
+})
 //   obj.forEach(holiday=>{
 
 //     if(parseInt(element.innerHTML)===parseInt(holiday.day) && selectYear===parseInt(holiday.year) && months.indexOf(selectMonth)+1 === parseInt(holiday.month)){
