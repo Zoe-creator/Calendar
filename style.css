@@ -2,7 +2,7 @@ body {
   background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
   display: grid;
   grid-template-areas:
-    "form"
+    "form "" "" div"
     "div"
     "table"
     "div"
@@ -69,9 +69,9 @@ margin-bottom: 10px;
 
 }
 
-#select-year {
+/* #select-year {
   float: right;
-}
+} */
 
 .two-buttons {
   margin-top: 10px;
@@ -100,9 +100,9 @@ footer {
   body {
     background-color: lightblue;
   }
-#select-year {
+/* #select-year {
   float: right;
-}
+} */
   .display-header {
     width: 100%;
   }

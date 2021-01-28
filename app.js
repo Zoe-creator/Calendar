@@ -1,21 +1,29 @@
 
-const getHoliday = async () => {
+let today = new Date()
+let currentYear = today.getFullYear(); //2021
+let currentDay = today.getDay() //tuesday the calendar starts sunday=0
+let currentDate = today.getDate() //26
+let currentMonth = today.getMonth() + 1 //month start index 0; 
+console.log(today, currentYear, currentDate, currentDay, currentMonth)
+
+
+
+const getHoliday = async (year) => {
   try {
-    let optionYear = document.querySelector('#select-year')
-    let year = optionYear.value
-    let apikey='d6266e50d306d7a484e0c1890beac99de3c0fa57'
+
+    let apikey = "d6266e50d306d7a484e0c1890beac99de3c0fa57"
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
-    return getValue(holidays)
+  console.log(getValue(holidays))
   } catch (error) {
     console.log(error)
   }
 
 }
-// console.log(getHoliday())
+// getHoliday()
 
 function getValue(holidays) {
-  let getValue = holidays.map(holiday => {
+ let obj= holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
     obj["fulldate"] = holiday.date.iso
@@ -25,23 +33,50 @@ function getValue(holidays) {
     obj["description"] = holiday.description
     return obj
   })
-  getValue.forEach((holiday) => {
-     let getYear = document.querySelector("#select-year").value
-  let getMonth = document.querySelector("#select-month").value
-  if ( getYear === holiday.year && getMonth === holiday.month) {
-    getDay += name
-  }
-  })
-  console.log(getValue)
- 
 
+console.log(obj)
+let td=document.querySelectorAll("td")
+let selectYear = document.querySelector("#select-year").value
+   console.log(selectYear)
+  let selectMonth = document.querySelector("#select-month").value
+  console.log(selectMonth)
+td.forEach(element=>{
+  // console.log(element.innerHTML)
+  obj.forEach(holiday=>{
+
+    if(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month)){
+      // console.log(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month))
+      element.innerText+=holiday.name
+      //console.log(td)
+    }
+  })
+  
+  
+
+})
+
+return td
 }
-let today = new Date()
-let currentYear = today.getFullYear(); //2021
-let currentDay = today.getDay() //tuesday the calendar starts sunday=0
-let currentDate = today.getDate() //26
-let currentMonth = today.getMonth() + 1 //month start index 0; 
-//console.log(today, currentYear, currentDate, currentDay, currentMonth)
+
+
+//fetch weather data
+// const getWeather = async (zipcode) => {
+//   try {
+
+//     let getdata = await axios.get(`http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=${zipcode}`)
+//    const weather=getdata
+//   } catch (error) {
+//     console.log(error)
+//   }
+// //get input
+// const getValue=(e)=>{
+//   e.preventDefault()
+//   let zipcode=document.querySelector('#zipcode')
+//   getWeather(zipcode)
+// }
+// const seachButton=document.querySelector('#search')
+// seachButton.addEventListener('click', getValue)
+
 //add option to pick up a year
 let optionYear = document.querySelector('#select-year')
 for (let i = 2025; i >= 2000; i--) {
@@ -97,7 +132,7 @@ form.addEventListener('change', (e) => {
   console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
- 
+
   createCalendar(selectYear, monthIndex)
 
 })
@@ -134,7 +169,7 @@ function createCalendar(year, month) {
   let totalDaysinMonth = new Date(year, month, 0).getDate()
   console.log(totalDaysinMonth)
   changeBody(month)
-
+   getHoliday(year)
   displayMonthYear(year, month)
 
   clearCalendar()
@@ -161,7 +196,8 @@ function createCalendar(year, month) {
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
         }
-        td.innerText = day;
+      
+        td.innerText += day;
         tr.append(td)
 
         day++; //increment day
@@ -173,3 +209,6 @@ function createCalendar(year, month) {
 }
 
 createCalendar(currentYear, currentMonth)
+
+
+
