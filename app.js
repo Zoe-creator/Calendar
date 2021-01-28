@@ -27,9 +27,9 @@ function getValue(holidays) {
 
   let list = document.querySelector(".list-holidays")
   console.log(list)
-  // list.innerHTML = ""
+  list.innerHTML = ""
   
-  holidays.map(holiday => {
+  let neededData=holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
     obj["fulldate"] = holiday.date.iso
@@ -38,34 +38,34 @@ function getValue(holidays) {
     obj["day"] = holiday.date.datetime.day
     obj["description"] = holiday.description
     return obj
-  }).forEach(holiday => {
- 
-    if (holiday.month === months.indexOf(selectMonth) + 1) {
+  })
+  let td = document.querySelectorAll("td")
+  // console.log(td.length)
+  let selectYear = document.querySelector("#select-year").value
 
-    
-      //console.log(holiday.month === months.indexOf(selectMonth) + 1)
-      let ol = document.createElement("ol")
-       ol= `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
-      <p class= "holiday-name> ${holiday.name}</p>
-      <p class = "holiday-description> ${holiday.description}</p>
-      `
-       list.insertAdjacentHTML("beforeend",ol)
-      // console.log(ol)
-    } else {
-      return;
-    }
-    
+  td.forEach(day => {
+    console.log(day.innerText)
+    neededData.forEach(holiday => {
+   
+      if (holiday.month == months.indexOf(selectMonth) + 1 && selectYear == holiday.year && day.innerText == holiday.day) {
+        let p = document.createElement('p')
+        p.innerText = holiday.name
+        p.setAttribute("class","holiday-name")
+        day.append(p)
+        let ol = document.createElement("ol")
+        ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
+        <p class= "holiday-name> ${holiday.name}</p>
+        <p class = "holiday-description> ${holiday.description}</p>
+        `
+        list.insertAdjacentHTML("beforeend", ol)
+      }
+  })
+
   })
 }
-let td = document.querySelectorAll("td")
 
-let selectYear = document.querySelector("#select-year")
-   console.log(selectYear.value)
 
-  
-td.forEach(element => {
-  console.log(element.innerHTML)
-})
+
 //   obj.forEach(holiday=>{
 
 //     if(parseInt(element.innerHTML)===parseInt(holiday.day) && selectYear===parseInt(holiday.year) && months.indexOf(selectMonth)+1 === parseInt(holiday.month)){

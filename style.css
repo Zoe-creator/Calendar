@@ -58,7 +58,9 @@ margin-bottom: 10px;
   border: 1px black solid;
 
 }
-
+.holiday-name{
+  color:rgb(2, 5, 34)
+}
 .next,
 .previous {
   display: inline;
