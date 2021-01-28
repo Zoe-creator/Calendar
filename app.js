@@ -50,7 +50,7 @@ function getValue(holidays) {
       <p class = "holiday-description> ${holiday.description}</p>
       `
       
-       list.append(ol)
+       list.insertAdjacentHTML("beforeend",ol)
       console.log(ol)
     } else {
       return;
