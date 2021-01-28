@@ -84,14 +84,15 @@ const getWeather = async (zipcode) => {
 
     let getdata = await axios.get(`http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=${zipcode}`)
     const weatherImage = getdata.data.current["weather_icons"][0]
-    const weathdescription=getdata.data.current["weather_descriptions"][0]
+    const weathdescription = getdata.data.current["weather_descriptions"][0]
+    const location=getdata.data.location.name
 // console.log(weatherImage)
-   return showWeather(weatherImage,weathdescription)
+   return showWeather(weatherImage,weathdescription,location)
   } catch (error) {
     console.log(error)
   }
 }
-function showWeather(picture, weathdescription) {
+function showWeather(picture, weathdescription,location) {
 
   let weather = document.querySelector(".weather")
  weather.innerHTML=""
@@ -102,7 +103,7 @@ function showWeather(picture, weathdescription) {
 
   let p = document.createElement('p')
   p.setAttribute("class","WeatherMessage")
-  p.innerHTML = `Hi, Current Weather is ${weathdescription}`
+  p.innerHTML = `Hi, Current Weather in ${location} is ${weathdescription}`
 weather.append(p)
   
 }
