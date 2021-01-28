@@ -14,16 +14,18 @@ const getHoliday = async (year) => {
     let apikey = "d6266e50d306d7a484e0c1890beac99de3c0fa57"
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
-  console.log(getValue(holidays))
+  getValue(holidays)
   } catch (error) {
     console.log(error)
   }
 
 }
-// getHoliday()
 
 function getValue(holidays) {
- let obj= holidays.map(holiday => {
+
+  let selectMonth = document.querySelector("#select-month").value
+  console.log(selectMonth)
+  holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
     obj["fulldate"] = holiday.date.iso
@@ -32,31 +34,39 @@ function getValue(holidays) {
     obj["day"] = holiday.date.datetime.day
     obj["description"] = holiday.description
     return obj
-  })
-
-console.log(obj)
-let td=document.querySelectorAll("td")
-let selectYear = document.querySelector("#select-year").value
-   console.log(selectYear)
-  let selectMonth = document.querySelector("#select-month").value
-  console.log(selectMonth)
-td.forEach(element=>{
-  // console.log(element.innerHTML)
-  obj.forEach(holiday=>{
-
-    if(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month)){
-      // console.log(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month))
-      element.innerText+=holiday.name
-      //console.log(td)
+  }).forEach(holiday => {
+    let list=document.querySelector("list-holidays")
+    if (holiday.month === months.indexOf(selectMonth) + 1) {
+      //console.log(holiday.month === months.indexOf(selectMonth) + 1)
+      let ol = document.createElement("ol")
+      let text=`${holiday.fulldate} - ${holiday.name}: ${holiday.description}`
+      ol.innerHTML = text
+      ol.append(list)
+  console.log(ol)
     }
+    
   })
+
+//let td=document.querySelectorAll("td")
+//let selectYear = document.querySelector("#select-year").value
+   //console.log(selectYear)
+
+  }
+// td.forEach(element=>{
+//   // console.log(element.innerHTML)
+//   obj.forEach(holiday=>{
+
+//     if(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month)){
+//       // console.log(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month))
+//       element.innerText+=holiday.name
+//       //console.log(td)
+//     }
+//   })
   
   
 
-})
+// })
 
-return td
-}
 
 
 //fetch weather data
