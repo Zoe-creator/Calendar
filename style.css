@@ -2,12 +2,33 @@ body {
   background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
   display: grid;
   grid-template-areas:
-    "form "" "" div"
-    "div"
+    "form div div"
+
     "table"
     "div"
     "main"
     "footer";
+}
+
+.get-zip-code,
+.weather {
+  position: relative;
+  float: center;
+  text-align: center;
+
+}
+
+#zipcode {
+  width: 60px;
+  hight: 30px;
+}
+
+.WeatherMessage {
+  position: relative;
+  color: rgb(243, 42, 42);
+  font-size: 20px;
+
+
 }
 
 .display-header {
@@ -115,8 +136,9 @@ footer {
 
 
   #select-year {
-  float: right;
-}
+    float: right;
+  }
+
   .display-header {
     width: 100%;
   }
@@ -131,7 +153,6 @@ footer {
 
   .grid thead th {
     text-align: center;
-    padding: 1px;
     background-color: rgb(17, 233, 245, 0.6);
   }
 
@@ -164,6 +185,10 @@ footer {
 
   .holiday-name {
     font-size: 10px;
+  }
+
+  .holiday-description {
+    font-size: 30px;
   }
 
 }

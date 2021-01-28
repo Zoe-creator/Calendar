@@ -7,7 +7,7 @@ let currentMonth = today.getMonth() + 1 //month start index 0;
 console.log(today, currentYear, currentDate, currentDay, currentMonth)
 
 
-
+//fetch holiday data
 const getHoliday = async (year) => {
   try {
     let apikey = "d6266e50d306d7a484e0c1890beac99de3c0fa57"
@@ -17,14 +17,11 @@ const getHoliday = async (year) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 function getValue(holidays) {
-
   let selectMonth = document.querySelector("#select-month").value
-  // console.log(selectMonth)
-
+  // console.log(typeof (selectMonth))
   
   let neededData=holidays.map(holiday => {
     let obj = {}
@@ -44,7 +41,7 @@ function getValue(holidays) {
   let selectYear = document.querySelector("#select-year").value
 
   td.forEach(day => {
-    console.log(day.innerText)
+    // console.log(day.innerText)
     neededData.forEach(holiday => {
       
 
@@ -72,8 +69,6 @@ function getValue(holidays) {
                
              } 
         })
-
-
       }
   })
 
@@ -85,22 +80,41 @@ function getValue(holidays) {
 
 
 //fetch weather data
-// const getWeather = async (zipcode) => {
-//   try {
+const getWeather = async (zipcode) => {
+  try {
 
-//     let getdata = await axios.get(`http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=${zipcode}`)
-//    const weather=getdata
-//   } catch (error) {
-//     console.log(error)
-//   }
+    let getdata = await axios.get(`http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=${zipcode}`)
+    const weatherImage = getdata.data.current["weather_icons"][0]
+    const weathdescription=getdata.data.current["weather_descriptions"][0]
+// console.log(weatherImage)
+   return showWeather(weatherImage,weathdescription)
+  } catch (error) {
+    console.log(error)
+  }
+}
+function showWeather(picture, weathdescription) {
+
+  let weather = document.querySelector(".weather")
+ weather.innerHTML=""
+  let img = document.createElement("img")
+  img.setAttribute("src", picture)
+ 
+  weather.append(img)
+
+  let p = document.createElement('p')
+  p.setAttribute("class","WeatherMessage")
+  p.innerHTML = `Hi, Current Weather is ${weathdescription}`
+weather.append(p)
+  
+}
 // //get input
-// const getValue=(e)=>{
-//   e.preventDefault()
-//   let zipcode=document.querySelector('#zipcode')
-//   getWeather(zipcode)
-// }
-// const seachButton=document.querySelector('#search')
-// seachButton.addEventListener('click', getValue)
+const getZip = () => {
+ 
+  let zipcode=document.querySelector('#zipcode')
+  getWeather(zipcode.value)
+}
+const seachButton=document.querySelector('#search')
+seachButton.addEventListener('click', getZip)
 
 //add option to pick up a year
 let optionYear = document.querySelector('#select-year')
@@ -221,6 +235,8 @@ function createCalendar(year, month) {
         //highlight today;
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
+         
+      
         }
       
         td.innerText += day;
