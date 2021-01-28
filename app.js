@@ -142,23 +142,23 @@ function changeBody(month) {
     case 1:
     case 2:
     case 3:
-      body.style.backgroundImage = "linear-gradient(to top, white, pink)";
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255, 255, 255), rgb(255,153,255))";
       headerColor.style.color = "rgb(250, 60, 205)"
       break;
     case 4:
     case 5:
     case 6:
-      body.style.backgroundImage = "linear-gradient(to top, blue, rgb(102,255,178))";
-      headerColor.style.color = "rgb(25, 250, 250)"
+      body.style.backgroundImage = "linear-gradient(to top, rgb(200,249,213), rgb(102,255,178))";
+      headerColor.style.color = "rgb(0,102,204)"
       break;
     case 7:
     case 8:
     case 9:
-      body.style.backgroundImage = "linear-gradient(to top, yellow, orange)";
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255,255,51), rgb(249,236,200))";
       headerColor.style.color = "rgb(230, 100, 100)"
       break;
     default:
-      body.style.backgroundImage = "linear-gradient(to top, red, rgb(153,255,51))";
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255,153,153), rgb(204,255,229))";
       headerColor.style.color = "rgb(250, 20, 10)"
   }
 }

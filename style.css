@@ -18,6 +18,10 @@ body {
 
 }
 
+#search:hover {
+  color: red;
+}
+
 #zipcode {
   width: 60px;
   height: 20px;
