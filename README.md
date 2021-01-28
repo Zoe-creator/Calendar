@@ -110,22 +110,23 @@ https://wireframe.cc/2HqJqq
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-|HTML | M | 2hr | ? | ? |
-| CSS - color,border,size  | L | 3 hrs| ?hrs | ?hrs |
-| CSS - flexbox or grid | H | 3hrs| ?hrs | ?hrs |
-| CSS - adjust screen | H | 2hr | ? hrs | ? hrs|
-| create current Calendar  using date object method | H | 2 hrs | ? | ? |
-| insert data option for year & month JS| H | 3 hrs | ? | ? |
-| change calender as to year, month | H | 3 hrs | ? | ? |
-| Working with API to get holiday, description | H |  3 hrs| ?hrs | ?hrs |
-| highlight today | H | 1 hrs | ? | ? |
-| showing holidays | H | 3 hrs | ? | ? |
-| display description | H | 2 hrs | ? | ? |
+|HTML | M | 2hr | 1hr | 1hr |
+| CSS - color,border,size  | L | 3 hrs| 3hrs | 3hrs |
+| CSS - flexbox or grid | H | 3hrs| 2hrs | 2hrs |
+| CSS - adjust screen | H | 2hr | 2 hrs | 2 hrs|
+| create current Calendar  using date object method | H | 2 hrs | 1hr  | hr |
+| insert data option for year & month JS| H | 3 hrs | .5hr | .5hr |
+| change calender as to year, month | H | 3 hrs | .5hr | .5hr |
+| Working with API to get holiday, description | H |  3 hrs| 1hrs | 1hrs |
+| highlight today | H | 1 hrs | .5hr | .5hr |
+| showing holidays to its date | H | 3 hrs | 12hr | 12hr |
+| display description | H | 2 hrs | .5hr | .5hr |
 | enable next/previous buttons to change month| H | 3 hrs | ?hrs | ?hrs |
 | display messages | H | 3 hrs | ? hrs | ? hrs |
-| add weather API  & enable button function| H | 3 hrs | ? hrs | ? hrs |
-| showing weather based on NY | H | 3 hrs | ? hrs | ? hrs |
-| Total | H | 40hrs| ?hrs | ?hrs |
+| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
+| showing weather based on NY | H | 3 hrs | .5 hrs | .5 hrs |
+| showing weather by zipcode | H | 3 hrs | 1 hrs | 1 hrs |
+| Total | H | 42hrs| ?hrs | ?hrs |
 
 ## Code Snippet
 
