@@ -66,7 +66,6 @@ function getValue(holidays) {
                 <p class = "holiday-description"> ${holiday.description}</p>
                 `
                list.insertAdjacentHTML("beforeend", ol)
-               
              } 
         })
       }
@@ -134,10 +133,10 @@ for (let i = 0; i < months.length; i++) {
   optionMonth.append(option)
 }
 
-let body = document.querySelector("body")
-let headerColor = document.querySelector(".display-header")
 
 function changeBody(month) {
+  let body = document.querySelector("body")
+let headerColor = document.querySelector(".display-header")
   switch (month) {
     case 1:
     case 2:
