@@ -84,7 +84,7 @@ margin-bottom: 10px;
 }
 
 .itstoday {
-  background: rgb(238, 197, 83);
+  background-color: rgb(238, 197, 83);
 }
 
 footer {
@@ -129,4 +129,17 @@ footer {
   background-color: rgb(238, 197, 83);
   color: red;
   font-weight: bolder;
+}
+@media only screen and (max-width: 600px) {
+  .grid thead th {
+    text-align:center;
+    padding:1px;
+  }
+  .grid th,
+.grid td {
+  padding: 1px;
+  text-align: center;
+
+}
+
 }

@@ -25,6 +25,10 @@ function getValue(holidays) {
 
   let selectMonth = document.querySelector("#select-month").value
   console.log(selectMonth)
+
+  let list = document.querySelector(".list-holidays")
+  list.innerHTML = ""
+  
   holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
@@ -35,28 +39,35 @@ function getValue(holidays) {
     obj["description"] = holiday.description
     return obj
   }).forEach(holiday => {
-    let list=document.querySelector("list-holidays")
+ 
     if (holiday.month === months.indexOf(selectMonth) + 1) {
+
+    
       //console.log(holiday.month === months.indexOf(selectMonth) + 1)
       let ol = document.createElement("ol")
-      let text=`${holiday.fulldate} - ${holiday.name}: ${holiday.description}`
-      ol.innerHTML = text
-      ol.append(list)
-  console.log(ol)
+       ol= `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
+      <p class= "holiday-name> ${holiday.name}</p>
+      <p class = "holiday-description> ${holiday.description}</p>
+      `
+      
+       list.append(ol)
+      console.log(ol)
+    } else {
+      return;
     }
     
   })
-
+}
 //let td=document.querySelectorAll("td")
 //let selectYear = document.querySelector("#select-year").value
    //console.log(selectYear)
 
-  }
+  
 // td.forEach(element=>{
 //   // console.log(element.innerHTML)
 //   obj.forEach(holiday=>{
 
-//     if(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month)){
+//     if(parseInt(element.innerHTML)===parseInt(holiday.day) && selectYear===parseInt(holiday.year) && months.indexOf(selectMonth)+1 === parseInt(holiday.month)){
 //       // console.log(parseInt(element.innerHTML)===parseInt(holiday.day) && months.indexOf(selectYear)+1===parseInt(holiday.year) && parseInt(selectMonth) === parseInt(holiday.month))
 //       element.innerText+=holiday.name
 //       //console.log(td)
@@ -142,7 +153,7 @@ form.addEventListener('change', (e) => {
   console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
-
+  
   createCalendar(selectYear, monthIndex)
 
 })
@@ -166,6 +177,7 @@ function displayMonthYear(year, month) {
   selectYear.value = year;
   selectMonth.value = months[month - 1]
   showHeader.innerText = `${months[month-1]} ${year}` //arr starts with index 0
+  getHoliday(year)
   return showHeader
 }
 
@@ -179,7 +191,7 @@ function createCalendar(year, month) {
   let totalDaysinMonth = new Date(year, month, 0).getDate()
   console.log(totalDaysinMonth)
   changeBody(month)
-   getHoliday(year)
+  
   displayMonthYear(year, month)
 
   clearCalendar()
