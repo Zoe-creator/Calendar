@@ -20,7 +20,7 @@ body {
 
 #zipcode {
   width: 60px;
-  hight: 30px;
+  height: 20px;
 }
 
 .WeatherMessage {
@@ -73,7 +73,7 @@ body {
 
 .grid td {
   height: 50px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .grid tbody tr {
@@ -158,7 +158,7 @@ footer {
 
   .grid td {
     height: 100px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
 }
@@ -171,6 +171,11 @@ footer {
 
 
 @media only screen and (max-width: 400px) {
+
+  #select-year {
+    float: right;
+  }
+
   .grid thead th {
     text-align: left;
   }
@@ -184,7 +189,7 @@ footer {
   }
 
   .holiday-name {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .holiday-description {
