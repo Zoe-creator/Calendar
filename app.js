@@ -39,6 +39,9 @@ function getValue(holidays) {
     obj["description"] = holiday.description
     return obj
   })
+
+
+  // add holiday name into the calendar
   let td = document.querySelectorAll("td")
   // console.log(td.length)
   let selectYear = document.querySelector("#select-year").value
@@ -46,18 +49,18 @@ function getValue(holidays) {
   td.forEach(day => {
     console.log(day.innerText)
     neededData.forEach(holiday => {
-   
+   //check if the condition meets.
       if (holiday.month == months.indexOf(selectMonth) + 1 && selectYear == holiday.year && day.innerText == holiday.day) {
         let p = document.createElement('p')
         p.innerText = holiday.name
         p.setAttribute("class","holiday-name")
         day.append(p)
-        let ol = document.createElement("ol")
-        ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
-        <p class= "holiday-name> ${holiday.name}</p>
-        <p class = "holiday-description> ${holiday.description}</p>
-        `
-        list.insertAdjacentHTML("beforeend", ol)
+        // let ol = document.createElement("ol")
+        // ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
+        // <p class= "holiday-name> ${holiday.name}</p>
+        // <p class = "holiday-description> ${holiday.description}</p>
+        // `
+        // list.insertAdjacentHTML("beforeend", ol)
       }
   })
 

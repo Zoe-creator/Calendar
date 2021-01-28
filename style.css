@@ -44,7 +44,7 @@ margin-bottom: 10px;
 .grid th,
 .grid td {
 
-  padding: 20px;
+  padding: 2px;
   text-align: center;
   border: 1px black solid;
   background-color: rgb(250, 240, 255,.5);
@@ -61,7 +61,7 @@ margin-bottom: 10px;
 .holiday-name{
   color:rgb(2, 5, 34)
 }
-.next,
+/* .next,
 .previous {
   display: inline;
   font-size: 20px;
@@ -69,7 +69,7 @@ margin-bottom: 10px;
   width: 100px;
   text-align: center;
 
-}
+} */
 
 /* #select-year {
   float: right;
@@ -110,7 +110,6 @@ footer {
   }
   .grid th,
 .grid td {
-  padding: 5px;
   text-align: center;
   border: 1px rgb(17, 3, 77) solid;
   background-color: rgb(238, 215, 250,.5);
@@ -118,11 +117,11 @@ footer {
 }
 .grid thead th {
   text-align:center;
-  padding:10px;
+  padding:1px;
   background-color: rgb(17, 233, 245, 0.6);
 }
 .grid td {
-  height: 60px;
+  height: 100px;
 }
 
 }
@@ -132,15 +131,16 @@ footer {
   color: red;
   font-weight: bolder;
 }
-@media only screen and (max-width: 600px) {
+
+
+@media only screen and (max-width: 400px) {
   .grid thead th {
-    text-align:center;
-    padding:1px;
+    text-align:left;
   }
   .grid th,
 .grid td {
-  padding: 1px;
-  text-align: center;
+  text-align: left;
+  height:80px;
 
 }
 
