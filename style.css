@@ -52,6 +52,7 @@ body {
 
 .grid td {
   height: 50px;
+  font-size: 16px;
 }
 
 .grid tbody tr {
@@ -67,6 +68,12 @@ body {
   color: rgba(161, 10, 243, 0.5)
 }
 
+.holidayname {
+  color: rgba(9, 185, 230, 0.6);
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /* .next,
 .previous {
   display: inline;
@@ -77,9 +84,9 @@ body {
 
 } */
 
-/* #select-year {
+#select-year {
   float: right;
-} */
+}
 
 .two-buttons {
   margin-top: 10px;
@@ -105,13 +112,11 @@ footer {
 }
 
 @media only screen and (max-width: 1200px) {
-  body {
-    background-color: lightblue;
-  }
 
-  /* #select-year {
+
+  #select-year {
   float: right;
-} */
+}
   .display-header {
     width: 100%;
   }
@@ -132,6 +137,7 @@ footer {
 
   .grid td {
     height: 100px;
+    font-size: 14px;
   }
 
 }
@@ -152,11 +158,12 @@ footer {
   .grid td {
     text-align: left;
     height: 80px;
+    font-weight: lighter;
 
   }
 
   .holiday-name {
-    font-size: 2px;
+    font-size: 10px;
   }
 
 }
