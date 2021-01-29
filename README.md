@@ -125,7 +125,7 @@ https://wireframe.cc/2HqJqq
 | display messages | H | 3 hrs | ? hrs | ? hrs |
 | add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
 | showing weather based on NY | H | 3 hrs | .5 hrs | .5 hrs |
-| showing weather by zipcode | H | 3 hrs | 1 hrs | 1 hrs |
+| showing weather by zipcode -added| H |  did not think to do it | 1 hrs | 1 hrs |
 | Total | H | 42hrs| ?hrs | ?hrs |
 
 ## Code Snippet
