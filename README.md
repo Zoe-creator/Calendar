@@ -90,12 +90,12 @@ current: {
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Jan 26| Project Approval | Incomplete 
-|Jan 27| HTML, JS- showing calendar,allowing change year & month,   | Incomplete
-|Jan 28| CSS - style, flexbox or grid | Incomplete
-|Jan 28| display description as clicked  | Incomplete
-|Jan 29| MVP | Incomplete
+|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | complete
+|Jan 26| Project Approval | complete 
+|Jan 27| HTML, JS- showing calendar,allowing change year & month,   | complete
+|Jan 28| CSS - style, flexbox or grid | complete
+|Jan 28| display description as clicked  | complete
+|Jan 29| MVP | complete
 |Feb 1| Presentations/Project Submission | Incomplete
 
 ## Priority Matrix
