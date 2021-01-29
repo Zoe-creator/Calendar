@@ -1,4 +1,3 @@
-
 let today = new Date()
 let currentYear = today.getFullYear(); //2021
 let currentDay = today.getDay() //tuesday the calendar starts sunday=0
@@ -15,7 +14,7 @@ const getHoliday = async (year) => {
     let apikey = "2ac15af74ee6214e9dc9f38a93c8089516ac9c3a"
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
-  getValue(holidays)
+    getValue(holidays)
   } catch (error) {
     console.log(error)
   }
@@ -24,8 +23,8 @@ const getHoliday = async (year) => {
 function getValue(holidays) {
   let selectMonth = document.querySelector("#select-month").value
   // console.log(typeof (selectMonth))
-  
-  let neededData=holidays.map(holiday => {
+
+  let neededData = holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
     obj["fulldate"] = holiday.date.iso
@@ -45,39 +44,39 @@ function getValue(holidays) {
   td.forEach(day => {
     // console.log(day.innerText)
     neededData.forEach(holiday => {
-      
 
-   //check if the condition meets.
-   if (day.innerText == birthDay && months.indexOf(selectMonth)+1 == birthMonth) {
 
-    let p = document.createElement('p')
-    p.innerText = "Happy Birthday"
-    day.append(p)
-  }
+      //check if the condition meets.
+      if (day.innerText == birthDay && months.indexOf(selectMonth) + 1 == birthMonth) {
+
+        let p = document.createElement('p')
+        p.innerText = "Happy Birthday"
+        day.append(p)
+      }
       if (holiday.month == months.indexOf(selectMonth) + 1 && selectYear == holiday.year && day.innerText == holiday.day) {
         let p = document.createElement('p')
         p.innerText = holiday.name
-        p.setAttribute("class","holiday-name")
+        p.setAttribute("class", "holiday-name")
         day.append(p)
-      
+
 
         //when the cell has holiday being clicked. show description
         day.addEventListener("click", function showDecription(e) {
-         
-  let list = document.querySelector(".description")
-  console.log(list)
+
+          let list = document.querySelector(".description")
+          console.log(list)
           list.innerHTML = ""
-             if (e.target.hasAttribute("class") ){
-             let ol = document.createElement("div")
-                ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
+          if (e.target.hasAttribute("class")) {
+            let ol = document.createElement("div")
+            ol = `<h1 class="holiday-date"> <strong> ${holiday.fulldate} </strong> </h1>
                 <p class= "holidayname"> ${holiday.name}</p>
                 <p class = "holiday-description"> ${holiday.description}</p>
                 `
-               list.insertAdjacentHTML("beforeend", ol)
-             } 
+            list.insertAdjacentHTML("beforeend", ol)
+          }
         })
       }
-  })
+    })
 
   })
 }
@@ -93,35 +92,39 @@ const getWeather = async (zipcode) => {
     let getdata = await axios.get(`http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=${zipcode}`)
     const weatherImage = getdata.data.current["weather_icons"][0]
     const weathdescription = getdata.data.current["weather_descriptions"][0]
-    const location=getdata.data.location.name
-// console.log(weatherImage)
-   return showWeather(weatherImage,weathdescription,location)
+    const location = getdata.data.location.name
+    const temp = getdata.data.current.temperature
+    const tempF = (temp * 9 / 5) + 32
+    console.log(temp)
+    // console.log(weatherImage)
+    return showWeather(weatherImage, weathdescription, location, tempF)
   } catch (error) {
     console.log(error)
   }
 }
-function showWeather(picture, weathdescription,location) {
+
+function showWeather(picture, weathdescription, location, temp) {
 
   let weather = document.querySelector(".weather")
- weather.innerHTML=""
+  weather.innerHTML = ""
   let img = document.createElement("img")
   img.setAttribute("src", picture)
- 
+
   weather.append(img)
 
   let p = document.createElement('p')
-  p.setAttribute("class","WeatherMessage")
-  p.innerHTML = `Hi, Current Weather in ${location} is ${weathdescription}`
-weather.append(p)
-  
+  p.setAttribute("class", "WeatherMessage")
+  p.innerHTML = `Hi, Current Weather in ${location} is ${weathdescription} and ${temp}°F `
+  weather.append(p)
+
 }
 // //get input
 const getZip = () => {
- 
-  let zipcode=document.querySelector('#zipcode')
+
+  let zipcode = document.querySelector('#zipcode')
   getWeather(zipcode.value)
 }
-const seachButton=document.querySelector('#search')
+const seachButton = document.querySelector('#search')
 seachButton.addEventListener('click', getZip)
 
 //add option to pick up a year
@@ -145,7 +148,7 @@ for (let i = 0; i < months.length; i++) {
 
 function changeBody(month) {
   let body = document.querySelector("body")
-let headerColor = document.querySelector(".display-header")
+  let headerColor = document.querySelector(".display-header")
   switch (month) {
     case 1:
     case 2:
@@ -179,7 +182,7 @@ form.addEventListener('change', (e) => {
   console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
-  
+
   createCalendar(selectYear, monthIndex)
 
 })
@@ -217,7 +220,7 @@ function createCalendar(year, month) {
   let totalDaysinMonth = new Date(year, month, 0).getDate()
   console.log(totalDaysinMonth)
   changeBody(month)
-  
+
   displayMonthYear(year, month)
 
   clearCalendar()
@@ -243,10 +246,10 @@ function createCalendar(year, month) {
         //highlight today;
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
-         
+
         }
-     
-      
+
+
         td.innerText += day;
         tr.append(td)
 
@@ -259,6 +262,3 @@ function createCalendar(year, month) {
 }
 
 createCalendar(currentYear, currentMonth)
-
-
-

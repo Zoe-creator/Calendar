@@ -3,7 +3,7 @@ body {
   background-size: cover;
   display: grid;
   grid-template-areas:
-  "header"
+    "header"
     "form div div"
 
     "table"
@@ -11,11 +11,12 @@ body {
     "main"
     "footer";
 }
-header{
-  color:red;
+
+header {
+  color: red;
   font-size: 50px;
   text-align: center;
- 
+
 }
 
 .get-zip-code,
@@ -73,12 +74,12 @@ header{
 .grid thead th {
   text-align: center;
   background-color: rgb(187, 233, 245, 0.6);
-  height:25px;
+  height: 25px;
 }
 
 .grid th,
 .grid td {
-height:20px;
+  height: 20px;
   padding: 2px;
   text-align: center;
   border: 1px black solid;
@@ -149,9 +150,10 @@ footer {
 @media only screen and (max-width: 1200px) {
 
   #select-month,
-#select-year{
-  margin-top: 10px;
-}
+  #select-year {
+    margin-top: 10px;
+  }
+
   #select-year {
     float: right;
   }
@@ -188,10 +190,11 @@ footer {
 
 
 @media only screen and (max-width: 400px) {
+
   #select-month,
-#select-year{
-  margin-top: 10px;
-}
+  #select-year {
+    margin-top: 10px;
+  }
 
   #select-year {
     float: right;
@@ -215,6 +218,13 @@ footer {
 
   .holiday-description {
     font-size: 30px;
+  }
+
+}
+
+@media only screen and (max-width: 200px) {
+  #select-year {
+    float: right;
   }
 
 }
