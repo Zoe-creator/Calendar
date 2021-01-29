@@ -1,15 +1,21 @@
 body {
   background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
   background-size: cover;
-  background-repeat: no-repeat;
   display: grid;
   grid-template-areas:
+  "header"
     "form div div"
 
     "table"
     "div"
     "main"
     "footer";
+}
+header{
+  color:red;
+  font-size: 50px;
+  text-align: center;
+ 
 }
 
 .get-zip-code,
@@ -30,6 +36,7 @@ body {
 }
 
 .WeatherMessage {
+  margin-top: 10px;
   position: relative;
   color: rgb(243, 42, 42);
   font-size: 20px;
@@ -49,7 +56,7 @@ body {
 #select-year {
   display: inline;
   position: relative;
-  margin-top: 10px;
+  margin-top: 20px;
 
   border: 2px rgb(34, 32, 32) solid;
   padding: 4px;
@@ -66,11 +73,12 @@ body {
 .grid thead th {
   text-align: center;
   background-color: rgb(187, 233, 245, 0.6);
+  height:25px;
 }
 
 .grid th,
 .grid td {
-
+height:20px;
   padding: 2px;
   text-align: center;
   border: 1px black solid;
@@ -140,7 +148,10 @@ footer {
 
 @media only screen and (max-width: 1200px) {
 
-
+  #select-month,
+#select-year{
+  margin-top: 10px;
+}
   #select-year {
     float: right;
   }
@@ -177,6 +188,10 @@ footer {
 
 
 @media only screen and (max-width: 400px) {
+  #select-month,
+#select-year{
+  margin-top: 10px;
+}
 
   #select-year {
     float: right;
