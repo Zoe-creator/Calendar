@@ -5,12 +5,14 @@ let currentDay = today.getDay() //tuesday the calendar starts sunday=0
 let currentDate = today.getDate() //26
 let currentMonth = today.getMonth() + 1 //month start index 0; 
 console.log(today, currentYear, currentDate, currentDay, currentMonth)
+let birthMonth = 7;
+let birthDay = 27;
 
 
 //fetch holiday data
 const getHoliday = async (year) => {
   try {
-    let apikey = "d6266e50d306d7a484e0c1890beac99de3c0fa57"
+    let apikey = "2ac15af74ee6214e9dc9f38a93c8089516ac9c3a"
     let getdata = await axios.get(`https://calendarific.com/api/v2/holidays?&api_key=${apikey}&country=US&year=${year}`)
     let holidays = getdata.data.response.holidays
   getValue(holidays)
@@ -46,6 +48,12 @@ function getValue(holidays) {
       
 
    //check if the condition meets.
+   if (day.innerText == birthDay && months.indexOf(selectMonth)+1 == birthMonth) {
+
+    let p = document.createElement('p')
+    p.innerText = "Happy Birthday"
+    day.append(p)
+  }
       if (holiday.month == months.indexOf(selectMonth) + 1 && selectYear == holiday.year && day.innerText == holiday.day) {
         let p = document.createElement('p')
         p.innerText = holiday.name
@@ -236,8 +244,8 @@ function createCalendar(year, month) {
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
          
-      
         }
+     
       
         td.innerText += day;
         tr.append(td)

@@ -1,5 +1,7 @@
 body {
   background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
+  background-size: cover;
+  background-repeat: no-repeat;
   display: grid;
   grid-template-areas:
     "form div div"
