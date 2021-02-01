@@ -123,17 +123,45 @@ https://wireframe.cc/2HqJqq
 \| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
 | showing weather based on NY | H | 3 hrs | .5 hrs | .5 hrs |
 | showing weather by zipcode -added| H |  did not think to do it | 1 hrs | 1 hrs |
-| Total | H | 42hrs| ?hrs | ?hrs |
+| Total | H | 42hrs| 26.5hrs | 26.5hrs |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+use nested for loop to create each day with diffrent days in each cell. the day has to increment 
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+let day = 1; //everymonth start day=1
+  //loop to create row/data 
+  let calendarBody = document.querySelector('#calendar-body')
+  for (let i = 0; i < 7; i++) {
+    let tr = document.createElement("tr") //create row
+    tr.setAttribute("class", "calendar-row")
+    for (let z = 0; z < 7; z++) { //seven days a week
+      //on the first row, indicate first day of month start in week
+      //empty html element
+      if (i === 0 && z < firstDayofMonth) {
+        let td = document.createElement("td")
+        td.innerText = ""
+        tr.append(td) ////each row should have data with empty date
+      } else {
+        if (day > totalDaysinMonth) { //loop stop when reach to total days
+          break;
+        }
+        let td = document.createElement("td")
+        //highlight today;
+        if (day === currentDate && month === currentMonth && year === currentYear) {
+          td.setAttribute("class", "itstoday")
+        }
+        td.innerText += day;
+        tr.append(td)
+        day++; //increment day
+      }
+    }
+    calendarBody.append(tr) //insert row into calendar body
+  }
+  return calendarBody;
 }
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+display weather, and its location.
