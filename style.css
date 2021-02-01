@@ -5,7 +5,6 @@ body {
   grid-template-areas:
     "header"
     "form div div"
-
     "table"
     "div"
     "main"
@@ -110,15 +109,7 @@ header {
   font-weight: bold;
 }
 
-/* .next,
-.previous {
-  display: inline;
-  font-size: 20px;
-  padding: 5px;
-  width: 100px;
-  text-align: center;
 
-} */
 
 #select-year {
   float: right;
@@ -218,6 +209,7 @@ footer {
 
   .holiday-description {
     font-size: 30px;
+    text-align: center;
   }
 
 }
@@ -226,5 +218,8 @@ footer {
   #select-year {
     float: right;
   }
+  holiday-description{
+    text-align: center;
 
+  }
 }

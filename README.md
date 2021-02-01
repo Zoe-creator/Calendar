@@ -58,7 +58,6 @@ https://wireframe.cc/N5VrpU
 
 - showing today's weather 
 - sending a message if today===birthday
-- have both select by specific year/month and change by next/previous working
 - add todo to a specific day, and shows on description
 
 ## Second API
@@ -121,9 +120,7 @@ https://wireframe.cc/2HqJqq
 | highlight today | H | 1 hrs | .5hr | .5hr |
 | showing holidays to its date | H | 3 hrs | 12hr | 12hr |
 | display description | H | 2 hrs | .5hr | .5hr |
-| enable next/previous buttons to change month| H | 3 hrs | ?hrs | ?hrs |
-| display messages | H | 3 hrs | ? hrs | ? hrs |
-| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
+\| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
 | showing weather based on NY | H | 3 hrs | .5 hrs | .5 hrs |
 | showing weather by zipcode -added| H |  did not think to do it | 1 hrs | 1 hrs |
 | Total | H | 42hrs| ?hrs | ?hrs |

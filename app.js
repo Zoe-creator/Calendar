@@ -1,9 +1,8 @@
 let today = new Date()
-let currentYear = today.getFullYear(); //2021
-let currentDay = today.getDay() //tuesday the calendar starts sunday=0
-let currentDate = today.getDate() //26
-let currentMonth = today.getMonth() + 1 //month start index 0; 
-console.log(today, currentYear, currentDate, currentDay, currentMonth)
+let currentYear = today.getFullYear(); 
+let currentDay = today.getDay() 
+let currentDate = today.getDate() 
+let currentMonth = today.getMonth() + 1 
 let birthMonth = 7;
 let birthDay = 27;
 
@@ -22,8 +21,6 @@ const getHoliday = async (year) => {
 
 function getValue(holidays) {
   let selectMonth = document.querySelector("#select-month").value
-  // console.log(typeof (selectMonth))
-
   let neededData = holidays.map(holiday => {
     let obj = {}
     obj["name"] = holiday.name
@@ -38,11 +35,9 @@ function getValue(holidays) {
 
   // add holiday name into the calendar
   let td = document.querySelectorAll("td")
-  // console.log(td.length)
   let selectYear = document.querySelector("#select-year").value
 
   td.forEach(day => {
-    // console.log(day.innerText)
     neededData.forEach(holiday => {
 
 
@@ -64,7 +59,6 @@ function getValue(holidays) {
         day.addEventListener("click", function showDecription(e) {
 
           let list = document.querySelector(".description")
-          console.log(list)
           list.innerHTML = ""
           if (e.target.hasAttribute("class")) {
             let ol = document.createElement("div")
@@ -82,9 +76,6 @@ function getValue(holidays) {
 }
 
 
-
-
-
 //fetch weather data
 const getWeather = async (zipcode) => {
   try {
@@ -95,8 +86,6 @@ const getWeather = async (zipcode) => {
     const location = getdata.data.location.name
     const temp = getdata.data.current.temperature
     const tempF = (temp * 9 / 5) + 32
-    console.log(temp)
-    // console.log(weatherImage)
     return showWeather(weatherImage, weathdescription, location, tempF)
   } catch (error) {
     console.log(error)
@@ -145,7 +134,6 @@ for (let i = 0; i < months.length; i++) {
   optionMonth.append(option)
 }
 
-
 function changeBody(month) {
   let body = document.querySelector("body")
   let headerColor = document.querySelector(".display-header")
@@ -179,15 +167,11 @@ let form = document.querySelector("#year-month-submission")
 form.addEventListener('change', (e) => {
   e.preventDefault();
   let selectYear = document.querySelector("#select-year").value
-  console.log(selectYear)
   let selectMonth = document.querySelector("#select-month").value
   let monthIndex = months.indexOf(selectMonth) + 1
-
   createCalendar(selectYear, monthIndex)
 
 })
-
-
 
 
 //clear calendar each time;
@@ -214,11 +198,8 @@ function displayMonthYear(year, month) {
 function createCalendar(year, month) {
   //where the first of month start in the week
   let firstDayofMonth = new Date(year, month - 1, 1).getDay() //weeks starts index=0 and sunday=0 
-  let monthTest = new Date(year, month, 1).getMonth() // here month index start 1;
-  console.log(monthTest)
-  // console.log(firstDayofMonth)
+ 
   let totalDaysinMonth = new Date(year, month, 0).getDate()
-  console.log(totalDaysinMonth)
   changeBody(month)
 
   displayMonthYear(year, month)
@@ -246,19 +227,44 @@ function createCalendar(year, month) {
         //highlight today;
         if (day === currentDate && month === currentMonth && year === currentYear) {
           td.setAttribute("class", "itstoday")
-
         }
-
-
         td.innerText += day;
         tr.append(td)
-
         day++; //increment day
       }
     }
     calendarBody.append(tr) //insert row into calendar body
   }
   return calendarBody;
+}
+
+//change  page body colors based on its season.
+function changeBody(month) {
+  let body = document.querySelector("body")
+  let headerColor = document.querySelector(".display-header")
+  switch (month) {
+    case 1:
+    case 2:
+    case 3:
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255, 255, 255), rgb(255,153,255))";
+      headerColor.style.color = "rgb(250, 60, 205)"
+      break;
+    case 4:
+    case 5:
+    case 6:
+      body.style.backgroundImage = "linear-gradient(to top, rgb(200,249,213), rgb(102,255,178))";
+      headerColor.style.color = "rgb(0,102,204)"
+      break;
+    case 7:
+    case 8:
+    case 9:
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255,255,51), rgb(249,236,200))";
+      headerColor.style.color = "rgb(230, 100, 100)"
+      break;
+    default:
+      body.style.backgroundImage = "linear-gradient(to top, rgb(255,153,153), rgb(204,255,229))";
+      headerColor.style.color = "rgb(250, 20, 10)"
+  }
 }
 
 createCalendar(currentYear, currentMonth)
