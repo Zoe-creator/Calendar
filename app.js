@@ -134,33 +134,6 @@ for (let i = 0; i < months.length; i++) {
   optionMonth.append(option)
 }
 
-function changeBody(month) {
-  let body = document.querySelector("body")
-  let headerColor = document.querySelector(".display-header")
-  switch (month) {
-    case 1:
-    case 2:
-    case 3:
-      body.style.backgroundImage = "linear-gradient(to top, rgb(255, 255, 255), rgb(255,153,255))";
-      headerColor.style.color = "rgb(250, 60, 205)"
-      break;
-    case 4:
-    case 5:
-    case 6:
-      body.style.backgroundImage = "linear-gradient(to top, rgb(200,249,213), rgb(102,255,178))";
-      headerColor.style.color = "rgb(0,102,204)"
-      break;
-    case 7:
-    case 8:
-    case 9:
-      body.style.backgroundImage = "linear-gradient(to top, rgb(255,255,51), rgb(249,236,200))";
-      headerColor.style.color = "rgb(230, 100, 100)"
-      break;
-    default:
-      body.style.backgroundImage = "linear-gradient(to top, rgb(255,153,153), rgb(204,255,229))";
-      headerColor.style.color = "rgb(250, 20, 10)"
-  }
-}
 
 //enable options
 let form = document.querySelector("#year-month-submission")
