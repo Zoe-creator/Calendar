@@ -8,9 +8,8 @@ a calendar shows holidays
 
 ## API and Data Sample
 https://calendarific.com/api/v2/holidays?&api_key=88e220d28b06a18d0148ed2a3bf3c6d5cebdb2aa&country=US&year=2021
-
+```
 response": {
-
     "holidays": [
       {
         "name": "New Year's Day",
@@ -40,6 +39,7 @@ response": {
           "id": "us",
           "name": "United States"
         },
+```
 
 ## Wireframes
 
@@ -64,7 +64,7 @@ https://wireframe.cc/N5VrpU
 
 http://api.weatherstack.com/current?access_key=ab2da8ad6d64ac126f4804f73b9957e4&query=New%20York
 
-
+```
 current: {
 
     "observation_time": "05:27 PM",
@@ -82,6 +82,7 @@ current: {
     "language": "en",
     "unit": "m"
     }
+```
 
 ## Project Schedule
 
