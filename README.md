@@ -165,4 +165,8 @@ let day = 1; //everymonth start day=1
 ```
 
 ## Change Log
+<<<<<<< HEAD
 display weather, and its location. allow user to find out weather by searching zip code
+=======
+display weather, and its location. allow user to find out weather by searching zip code
+>>>>>>> c74f785043f031181a26b7a5961754b62c293656
