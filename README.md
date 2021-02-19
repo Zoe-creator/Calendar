@@ -102,7 +102,7 @@ current: {
 ## Priority Matrix
 
 https://wireframe.cc/2HqJqq
-![Priority Matrix](https://res.cloudinary.com/lizhenwen727/image/upload/v1613512105/Screen_Shot_2021-02-16_at_4.47.49_PM_onpqsa.png)
+![Priority Matrix](https://res.cloudinary.com/lizhenwen727/image/upload/v1611618653/Screen_Shot_2021-01-25_at_6.50.18_PM_ljeuii.png)
 
 
 ## Timeframes
@@ -122,7 +122,7 @@ https://wireframe.cc/2HqJqq
 | highlight today | H | 1 hrs | .5hr | .5hr |
 | showing holidays to its date | H | 3 hrs | 12hr | 12hr |
 | display description | H | 2 hrs | .5hr | .5hr |
-\| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
+| add weather API  & enable button function| H | 3 hrs | 1 hrs | 1 hrs |
 | showing weather based on NY | H | 3 hrs | .5 hrs | .5 hrs |
 | showing weather by zipcode -added| H |  did not think to do it | 1 hrs | 1 hrs |
 | Total | H | 42hrs| 26.5hrs | 26.5hrs |
