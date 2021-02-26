@@ -2,6 +2,9 @@ body {
   background-image: linear-gradient(to top, rgb(215, 216, 209), pink);
   background-size: cover;
   display: grid;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
   grid-template-areas:
     "header"
     "form div div"
@@ -23,7 +26,7 @@ header {
   position: relative;
   float: center;
   text-align: center;
-
+margin:auto;
 }
 
 #search:hover {
@@ -33,6 +36,7 @@ header {
 #zipcode {
   width: 60px;
   height: 20px;
+  justify-self: center;
 }
 
 .WeatherMessage {
@@ -56,6 +60,7 @@ header {
 #select-year {
   display: inline;
   position: relative;
+  margin:auto;
   margin-top: 20px;
 
   border: 2px rgb(34, 32, 32) solid;
@@ -67,7 +72,9 @@ header {
 .grid {
   border-collapse: collapse;
   font-size: 1em;
-  min-width: 400px;
+  /* min-width: 400px; */
+  width:90vw;
+  align-items: center;
 }
 
 .grid thead th {
@@ -96,17 +103,23 @@ header {
 }
 
 .holiday-name {
-  color: rgb(2, 7, 59)
+  color: rgb(2, 7, 59);
+  text-align:center;
+
 }
 
 .holiday-date {
-  color: rgba(161, 10, 243, 0.5)
+  color: rgba(161, 10, 243, 0.5);
+  text-align: center;
+
 }
 
 .holidayname {
   color: rgb(26, 159, 192);
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+
 }
 
 
@@ -140,9 +153,16 @@ footer {
 
 @media only screen and (max-width: 1200px) {
 
+  .grid{
+    width:90%;
+    align-items: center;
+    margin:auto;
+  }
+
   #select-month,
   #select-year {
     margin-top: 10px;
+
   }
 
   #select-year {
@@ -180,12 +200,14 @@ footer {
 }
 
 
-@media only screen and (max-width: 400px) {
-
-  #select-month,
-  #select-year {
-    margin-top: 10px;
+@media only screen and (max-width: 600px) {
+ 
+  .grid{
+    width:80vw;
+    align-items: center;
+    margin:auto;
   }
+
 
   #select-year {
     float: right;
@@ -214,12 +236,44 @@ footer {
 
 }
 
-@media only screen and (max-width: 200px) {
-  #select-year {
-    float: right;
-  }
-  holiday-description{
-    text-align: center;
+@media only screen and (max-width: 375px) {
+  body{
+    width:80%;
+    margin:auto;
 
   }
+  .grid{
+    width:80vw;
+    /* margin-left:20px;
+    margin-right:20px; */
+    margin:auto;
+  }
+  #select-year {
+    margin-right:0;
+    float: right;
+  }
+  .holiday-description{
+    text-align: center;
+    font-size: 16px;
+
+  }
+  .grid td{
+    height:150px;
+   
+  }
+  .grid thead th{
+    height:60px;
+  }
+  header{
+    text-align: center;
+  }
+  .get-zip-code,
+.weather{
+  justify-self: center;
+  margin-left: 90px;
+}
+  #select-month,
+.display-header, .holiday-description{
+  margin-left:90px;
+}
 }
