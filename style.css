@@ -203,7 +203,7 @@ footer {
 @media only screen and (max-width: 600px) {
  
   .grid{
-    width:80vw;
+    width:90vw;
     align-items: center;
     margin:auto;
   }
