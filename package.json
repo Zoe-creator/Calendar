@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "publishheroku": "cd ../../ && git subtree push --prefix nodeapps/appone aqueous-coast-99526 master || true"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
