@@ -1,5 +1,5 @@
 {
-  "name": "Calendar",
+  "name": "calendar-one",
   "version": "1.0.0",
   "description": "https://zoe-creator.github.io/Calendar/.",
   "main": "app.js",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Zoe-creator/Calendar/issues"
   },
-  "homepage": "https://github.com/Zoe-creator/Calendar#readme"
+  "homepage": "https://github.com/Zoe-creator/Calendar#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
