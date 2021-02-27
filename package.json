@@ -20,5 +20,6 @@
   "homepage": "https://github.com/Zoe-creator/Calendar#readme",
   "dependencies": {
     "axios": "^0.21.1"
-  }
+  },
+  "devDependencies": {}
 }
