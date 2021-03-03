@@ -4,6 +4,7 @@
   "description": "https://zoe-creator.github.io/Calendar/.",
   "main": "app.js",
   "scripts": {
+    "build:"...",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
